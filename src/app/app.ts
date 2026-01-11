@@ -4,10 +4,12 @@ import {PrimaryButton} from './_components/primary-button/primary-button';
 import {SecondaryButton} from './_components/secondary-button/secondary-button';
 import {ItemCertified} from './_components/item-certified/item-certified';
 import {BaseUi} from './_components/base-ui/base-ui';
+import {Certificates} from './pages/certificates/certificates';
+import {CertifiedForm} from './pages/certified-form/certified-form';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, PrimaryButton, SecondaryButton, ItemCertified, BaseUi],
+  imports: [Navbar, PrimaryButton, SecondaryButton, ItemCertified, BaseUi, Certificates, CertifiedForm],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
