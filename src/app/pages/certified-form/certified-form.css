@@ -71,3 +71,29 @@ label{
   padding: 8px 12px;
   height: 40px;
 }
+
+.custom-input:focus{
+  border: 1px solid #3b5ac2;
+}
+
+.custom-input-group:has(input:focus) label{
+  color: #3b5ac2;
+}
+
+.error-message{
+  color: crimson;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.error-message p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.custom-input-group:has(.error-message) > label{
+  color: crimson;
+}
