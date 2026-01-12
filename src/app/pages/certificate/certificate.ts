@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import {SecondaryButton} from '../../_components/secondary-button/secondary-button';
-import {NgOptimizedImage} from '@angular/common';
+import {RouterLink} from '@angular/router';
+
 
 @Component({
   selector: 'app-certificate',
   imports: [
     SecondaryButton,
-    NgOptimizedImage
-  ],
+    RouterLink,
+    ],
   templateUrl: './certificate.html',
   styleUrl: './certificate.css',
 })
