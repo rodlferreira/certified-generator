@@ -20,10 +20,14 @@ import {NgClass, NgStyle} from '@angular/common';
 export class CertifiedForm {
 nome: string = "";
 atividade: string = "";
-atividades: string[] = ['Angular', 'React']
+atividades: string[] = ['Angular']
 
   campoValido(control: NgModel) {
     return control.invalid && control.touched && control.errors
+  }
+
+  formValido() {
+  return this.atividades.length > 0 && this.nome.length > 0;
   }
 
 }

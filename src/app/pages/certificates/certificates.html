@@ -4,16 +4,16 @@
     <p class="mb-4 custom-subtitle">Visualize todos os certificados gerados</p>
   </div>
 
-<!--  <div class="card custom-card w-100">-->
-<!--    <i class="ph ph-certificate"></i>-->
-<!--    <div class="custom-warning-titles">-->
-<!--      <h3 class="card-title">Nenhum certificado gerado</h3>-->
-<!--      <p class="card-subtitle">Gere certificados para consultar o historico</p>-->
-<!--    </div>-->
-<!--    <app-secondary-button></app-secondary-button>-->
-<!--  </div>-->
-
-  <div class="list-certificates w-100">
-    <app-item-certified></app-item-certified>
+  <div class="card custom-card w-100">
+    <i class="ph ph-certificate"></i>
+    <div class="custom-warning-titles">
+      <h3 class="card-title">Nenhum certificado gerado</h3>
+      <p class="card-subtitle">Gere certificados para consultar o historico</p>
+    </div>
+    <app-secondary-button routerLink="/certificates/new" textoBotaoSecondary="Gerar certificado"></app-secondary-button>
   </div>
+
+<!--  <div class="list-certificates w-100">-->
+<!--    <app-item-certified></app-item-certified>-->
+<!--  </div>-->
 </div>

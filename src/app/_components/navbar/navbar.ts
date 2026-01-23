@@ -1,12 +1,13 @@
 import {booleanAttribute, Component, OnInit} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   imports: [
     NgOptimizedImage,
-    RouterLink
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
