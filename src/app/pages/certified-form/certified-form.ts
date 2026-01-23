@@ -20,7 +20,7 @@ import {NgClass, NgStyle} from '@angular/common';
 export class CertifiedForm {
 nome: string = "";
 atividade: string = "";
-atividades: string[] = ['Angular']
+atividades: string[] = []
 
   campoValido(control: NgModel) {
     return control.invalid && control.touched && control.errors
@@ -28,6 +28,15 @@ atividades: string[] = ['Angular']
 
   formValido() {
   return this.atividades.length > 0 && this.nome.length > 0;
+  }
+
+  adicionarAtividade() {
+  this.atividades.push(this.atividade);
+  this.atividade = ''
+  }
+
+  excluirAtividade(index: number) {
+    this.atividades.splice(index, 1);
   }
 
 }
