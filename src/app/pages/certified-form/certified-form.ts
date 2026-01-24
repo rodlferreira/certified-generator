@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import {SecondaryButton} from '../../_components/secondary-button/secondary-button';
 import {PrimaryButton} from '../../_components/primary-button/primary-button';
-import {FormsModule, NgModel} from '@angular/forms';
+import {FormsModule, NgForm, NgModel} from '@angular/forms';
 import {required} from '@angular/forms/signals';
 import {NgClass, NgStyle} from '@angular/common';
+import {CertificateInterface} from '../../interfaces/certificateInterface';
+import {CertificateService} from '../../_services/certificate';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-certified-form',
@@ -18,25 +21,68 @@ import {NgClass, NgStyle} from '@angular/common';
   styleUrl: './certified-form.css',
 })
 export class CertifiedForm {
-nome: string = "";
-atividade: string = "";
-atividades: string[] = []
+
+constructor(private certificateService: CertificateService) { }
+
+@ViewChild('form') form!: NgForm;
+
+certificate: CertificateInterface = {
+  id: '',
+  atividades: [],
+  nome: '',
+  dataEmissao: '',
+}
+atividade: string = '';
 
   campoValido(control: NgModel) {
     return control.invalid && control.touched && control.errors
   }
 
   formValido() {
-  return this.atividades.length > 0 && this.nome.length > 0;
+  return this.certificate.atividades.length > 0 && this.certificate.nome.length > 0;
   }
 
   adicionarAtividade() {
-  this.atividades.push(this.atividade);
+    if (this.atividade.length == 0) {
+      return;
+    }
+  this.certificate.atividades.push(this.atividade);
   this.atividade = ''
   }
 
   excluirAtividade(index: number) {
-    this.atividades.splice(index, 1);
+    this.certificate.atividades.splice(index, 1);
   }
+
+submit() {
+  if (!this.formValido()) {
+    return;
+  }
+  this.certificate.dataEmissao = this.dataAtual()
+  this.certificate.id = uuidv4()
+  this.certificateService.adicionarCertificado(this.certificate)
+
+  this.certificate = this.estadoInicial()
+  this.form.resetForm()
+}
+
+dataAtual() {
+  const dataAtual = new Date()
+  const dia = String(dataAtual.getDate()).padStart(2, '0');
+  const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+  const ano = dataAtual.getFullYear();
+
+  const dataFormatada = `${dia}/${mes}/${ano}`;
+  return dataFormatada;
+}
+
+estadoInicial() {
+    return {
+      id: '',
+      atividades: [],
+      nome: '',
+      dataEmissao: '',
+    }
+}
 
 }

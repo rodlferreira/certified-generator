@@ -1,5 +1,5 @@
 import {booleanAttribute, Component, OnInit} from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
+import {NgClass, NgOptimizedImage} from '@angular/common';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
@@ -7,7 +7,8 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
   imports: [
     NgOptimizedImage,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    NgClass
   ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
