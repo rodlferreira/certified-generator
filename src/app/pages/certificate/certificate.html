@@ -4,24 +4,26 @@
       <i class="ph ph-arrow-left"></i>
       <p class="m-0">Voltar</p>
     </div>
-    <app-secondary-button></app-secondary-button>
+    <app-secondary-button phClass="ph ph-download-simple" textoBotaoSecondary="Download"></app-secondary-button>
   </div>
-  <div class="certificado d-flex justify-content-center align-items-center">
-    <img class="icone-medalha" src="certificate/certificate_Ribbon.png" alt="icone de medalha">
-    <div class="conteudo-certificado">
-      <img class="img-assinatura" src="certificate/certificate_Signature.svg" alt="assinatura">
-      <div class="info-certificado d-flex flex-column align-items-center">
-        <div class="tittle-sub-certified">
-          <h1>CERTIFICADO DE CONCLUSÃO</h1>
-          <p>Este certificado comprova que</p>
+  @if (certificate) {
+    <div class="certificado d-flex justify-content-center align-items-center">
+      <img class="icone-medalha" src="certificate/certificate_Ribbon.png" alt="icone de medalha">
+      <div class="conteudo-certificado">
+        <img class="img-assinatura" src="certificate/certificate_Signature.svg" alt="assinatura">
+        <div class="info-certificado d-flex flex-column align-items-center">
+          <div class="tittle-sub-certified">
+            <h1>CERTIFICADO DE CONCLUSÃO</h1>
+            <p>Este certificado comprova que</p>
+          </div>
+          <p class="nome-aluno">{{certificate.nome}}</p>
+          <div>
+            <p class="lista-atividade-titulo">Concluiu com sucesso as seguintes atividades:</p>
+            <p class="lista-atividade">{{certificate.atividades.join(', ')}}</p>
+          </div>
         </div>
-        <p class="nome-aluno">Ana Margarida</p>
-        <div>
-          <p class="lista-atividade-titulo">Concluiu com sucesso as seguintes atividades:</p>
-          <p class="lista-atividade">Introdução ao Angular, ReactJS</p>
-        </div>
+        <P class="data-emissao">Emitido em {{certificate.dataEmissao}}</P>
       </div>
-      <P class="data-emissao">Emitido em 26/01/2026</P>
     </div>
-  </div>
+  }
 </div>

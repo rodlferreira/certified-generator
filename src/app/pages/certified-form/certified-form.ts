@@ -7,6 +7,7 @@ import {NgClass, NgStyle} from '@angular/common';
 import {CertificateInterface} from '../../interfaces/certificateInterface';
 import {CertificateService} from '../../_services/certificate';
 import { v4 as uuidv4 } from 'uuid';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-certified-form',
@@ -22,7 +23,7 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class CertifiedForm {
 
-constructor(private certificateService: CertificateService) { }
+constructor(private certificateService: CertificateService, private router: Router) { }
 
 @ViewChild('form') form!: NgForm;
 
@@ -62,8 +63,9 @@ submit() {
   this.certificate.id = uuidv4()
   this.certificateService.adicionarCertificado(this.certificate)
 
-  this.certificate = this.estadoInicial()
-  this.form.resetForm()
+  this.router.navigate(['certificates', this.certificate.id])
+  // this.certificate = this.estadoInicial()
+  // this.form.resetForm()
 }
 
 dataAtual() {

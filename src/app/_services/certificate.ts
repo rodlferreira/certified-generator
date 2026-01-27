@@ -12,7 +12,7 @@ export class CertificateService {
   }
 
   adicionarCertificado(certificate: CertificateInterface) {
-    this.certificates.push({...certificate});
+    this.certificates.unshift({...certificate});
     localStorage.setItem('certificate', JSON.stringify(this.certificates));
   }
 }
