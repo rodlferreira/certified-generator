@@ -15,11 +15,5 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 })
 export class Navbar implements OnInit {
 ngOnInit() {
-  this.mensagem()
-}
-
-//retirar depois
-mensagem() {
-  console.log('mensagem navbar initialized');
   }
 }

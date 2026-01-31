@@ -2,8 +2,7 @@ import { Component, ViewChild} from '@angular/core';
 import {SecondaryButton} from '../../_components/secondary-button/secondary-button';
 import {PrimaryButton} from '../../_components/primary-button/primary-button';
 import {FormsModule, NgForm, NgModel} from '@angular/forms';
-import {required} from '@angular/forms/signals';
-import {NgClass, NgStyle} from '@angular/common';
+import {NgClass} from '@angular/common';
 import {CertificateInterface} from '../../interfaces/certificateInterface';
 import {CertificateService} from '../../_services/certificate';
 import { v4 as uuidv4 } from 'uuid';
@@ -15,7 +14,6 @@ import {Router} from '@angular/router';
     SecondaryButton,
     PrimaryButton,
     FormsModule,
-    NgStyle,
     NgClass
   ],
   templateUrl: './certified-form.html',
@@ -64,8 +62,6 @@ submit() {
   this.certificateService.adicionarCertificado(this.certificate)
 
   this.router.navigate(['certificates', this.certificate.id])
-  // this.certificate = this.estadoInicial()
-  // this.form.resetForm()
 }
 
 dataAtual() {
